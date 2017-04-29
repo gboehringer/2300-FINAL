@@ -1,0 +1,86 @@
+body{
+	padding: 0;
+	margin: 0;
+	background-color: #f5f5f5;
+    font-size: 1.2em;
+    /*font-family: "Trebuchet MS", Helvetica, sans-serif; */
+    font-family: 'Open Sans', sans-serif;		
+    line-height: 1.5;
+    margin:auto;
+    padding: 0;
+    height: 100%;
+}
+content{
+	max-height: 100%;
+}
+nav{
+	width: 100%;
+    position: fixed;
+    background-color: #420001;
+    margin: auto;
+    text-align: center;
+/*    top: 0;
+    left: 0; */
+}
+nav a{
+    display: inline-block;
+    color: #fff;
+    height: 80px;
+    line-height: 80px;
+    margin: 0 auto;
+    padding: 0 2%;
+    text-decoration: none;
+}
+#tabs{
+	width: 60%;
+	float: right;
+	padding: 0 2%;
+}
+#tabs a:hover{
+	background-color: #510102;
+}
+#tabs a{
+	float: right;
+	padding: 0 3%;
+}
+#icon{
+	width: 30%;
+	float: left;
+	padding: 0 3%;
+}
+#gcc_icon{
+	height: 40%;
+	padding: auto 0px;
+}
+#icon a{
+	float: left;
+}
+.section{
+	max-width: 96%;
+	width: 100%;
+	margin: none;
+	padding: 80px 2%;
+	height: 1300px;
+}
+#top{
+	background-image: url("../images/gcc-temp-background.jpg");
+	background-repeat: no-repeat;
+	background-size: 100vw;
+	height: 100vh;
+	padding-top: 0;
+}
+#about_us{
+	background-color: red;
+}
+#our_members{
+	background-color: orange;
+}
+#companies{
+	background-color: green;
+}
+#apply{
+	background-color: yellow;
+}
+#contact_us{
+	background-color: brown;
+}
