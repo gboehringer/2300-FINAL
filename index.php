@@ -7,6 +7,7 @@
 		<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 		<link rel="stylesheet" type="text/css" href="styling/bootstrap.min.css">
 		<link rel="stylesheet" type="text/css" href="styling/stylesheet.css?v=11198765678152">
+		<link rel="icon" href="images/browser_icon.ico">
 		<title>GCC</title>
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js" type="text/javascript"></script> 
 	</head>
@@ -41,11 +42,19 @@
 			</div>
 
 			<div class="container-fluid section" id="our_members">
-				<div class="row">
-					<div class="col-lg-12">
-						<h2>Our Members</h2>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-					</div>
+				<h2>Our Members</h2><br/>
+				<div class="row" id="member_list">
+					<?php
+						for($j = 0; $j < 13; $j++){
+							echo "<div class='col-lg-3 col-md-3 col-sm-4 col-xs-6 member_profile'>
+									<img src='images/no-image-profile.png' alt='profile picture' class='member_headshot'>
+									<p><b>FirstName LastName</b></p>
+									<p>Position: [list position]</p>
+									<p>Class of 20XX</p>
+									<p>Major: [list major]</p>
+								</div>";
+						}
+					?>
 				</div>
 			</div>
 

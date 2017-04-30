@@ -63,7 +63,7 @@ nav a{
 	width: 100%;
 	margin: none;
 	padding: 90px 6%;
-	height: 100vh;
+	min-height: 100vh;
 }
 #top{
 	background-image: url("../images/gcc-temp-background.jpg");
@@ -76,7 +76,23 @@ nav a{
 	background-color: red;
 }
 #our_members{
-	background-color: orange;
+	background-color: #f0f0f0;
+	line-height: .8;
+
+}
+#member_list{
+	text-align: center;
+}
+.member_profile{
+	padding: 20px 0px 15px 0px;
+}
+.member_headshot{
+	width: 160px;
+	border-radius: 50%;
+}
+.member_headshot:hover{
+	border-width: 1px;
+	border-style: solid;
 }
 #companies{
 	background-color: green;
