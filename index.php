@@ -31,7 +31,7 @@
 			<div class="container-fluid section" id="top">
 				<div class="row">
 					<div class="col-lg-12 col-md-12 col-sm-12">
-					<h2 id="main_title">GLOBAL CHINA<br>CONNECTION: CORNELL</h2>
+					<h2 id="main_title">GLOBAL CHINA CONNECTION:<br>CORNELL CHAPTER</h2>
 					</div>
 				</div>
 			</div>
@@ -97,6 +97,7 @@
 				<a href="https://www.facebook.com/GlobalChinaConnectionCornell/" target="_blank"><img class="footer_image" src="images/facebook.png" alt="fb"></a>
 				<a href="https://www.linkedin.com/company-beta/356784/?pathWildcard=356784" target="_blank"><img class="footer_image" src="images/linkedin.png" alt="linkedin"></a>
 				<a href="https://twitter.com/GCCglobal" target="_blank"><img class="footer_image" src="images/twitter.png" alt="twitter"></a>
+				<a href="" target="_blank" id="admin_login"><img id="admin_image" class="footer_image" src="images/admin_settings.png" alt="admin settings" ></a>
 			</footer>
 		</div>
 	</body>

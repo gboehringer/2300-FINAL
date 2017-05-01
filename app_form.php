@@ -13,7 +13,7 @@
 	<body>
 		<nav>
 			<div id="icon">
-				<a href="#top"><img id="gcc_icon" src="images/gcc_gen.png" alt="gcc_icon"></a>
+				<a href="index.php"><img id="gcc_icon" src="images/gcc_gen.png" alt="gcc_icon"></a>
 			</div>
 			<div id="tabs">
 				<a href="index.php">Return to Homepage</a>
@@ -24,6 +24,7 @@
 			<h2>GCC Application Form</h2>
 			<form method = "post" id = "application">
 			<input type = "text" name = "firstname" placeholder = "First Name" required>
+			<input type = "text" name = "firstname" placeholder = "Middle Name - Optional">
 			<input type = "text" name = "lastname" placeholder = "Last Name" required>
 			<select name="year">
   				<option value="Freshman">Freshman</option>
@@ -33,7 +34,7 @@
 			</select>
 			<h3>Resume Upload</h3>
 			<input type = 'file' name = 'Resume' required>
-			<h3>Optional Cover Letter Upload</h3>
+			<h3>Cover Letter Upload - Optional</h3>
 			<input type = 'file' name = 'Optional Cover Letter'>
 			<h3>Headshot Upload</h3>
 			<input type = 'file' name = 'Headshot' >
