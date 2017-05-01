@@ -5,8 +5,11 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width = device-width, initial-scale = 1">
 		<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Abel" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Lato:300" rel="stylesheet">
 		<link rel="stylesheet" type="text/css" href="styling/bootstrap.min.css">
-		<link rel="stylesheet" type="text/css" href="styling/stylesheet.css?v=11198765678152">
+		<link rel="stylesheet" type="text/css" href="styling/stylesheet.css?v=1119878765678152">
 		<link rel="icon" href="images/browser_icon.ico">
 		<title>GCC</title>
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js" type="text/javascript"></script> 
@@ -26,6 +29,11 @@
 		</nav>
 		<div class="container-fluid" id="content">
 			<div class="container-fluid section" id="top">
+				<div class="row">
+					<div class="col-lg-12 col-md-12 col-sm-12">
+					<h2 id="main_title">GLOBAL CHINA<br>CONNECTION: CORNELL</h2>
+					</div>
+				</div>
 			</div>
 
 			<div class="container-fluid section" id="about_us">
@@ -85,6 +93,11 @@
 				</div>
 			</div>
 
+			<footer>
+				<a href="https://www.facebook.com/GlobalChinaConnectionCornell/" target="_blank"><img class="footer_image" src="images/facebook.png" alt="fb"></a>
+				<a href="https://www.linkedin.com/company-beta/356784/?pathWildcard=356784" target="_blank"><img class="footer_image" src="images/linkedin.png" alt="linkedin"></a>
+				<a href="https://twitter.com/GCCglobal" target="_blank"><img class="footer_image" src="images/twitter.png" alt="twitter"></a>
+			</footer>
 		</div>
 	</body>
 </html>

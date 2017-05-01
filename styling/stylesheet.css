@@ -2,13 +2,14 @@ body{
 	padding: 0;
 	margin: 0;
 	background-color: #f5f5f5;
-    font-size: 1.7em;
+    font-size: 2em;
     /*font-family: "Trebuchet MS", Helvetica, sans-serif; */
-    font-family: 'Open Sans', sans-serif;		
+    font-family: 'Lato', sans-serif;	
     line-height: 1.5;
     margin:auto;
     padding: 0;
     height: 100%;
+    color: #000;
 }
 #content{
 	max-height: 100%;
@@ -38,14 +39,14 @@ nav a{
 	float: right;
 	padding: 0 2%;
 }
-#tabs a:hover{
-	background-color: #510102;
-	color: #fff;
-}
 #tabs a{
 	float: right;
 	padding: 0 3%;
 	text-decoration: none;
+}
+#tabs a:hover{
+	background-color: #510102;
+	color: #fff;
 }
 #icon{
 	width: 30%;
@@ -66,11 +67,24 @@ nav a{
 	min-height: 100vh;
 }
 #top{
-	background-image: url("../images/gcc-temp-background.jpg");
+	background: 
+    /* top, transparent red, faked with gradient */ 
+    linear-gradient(
+      rgba(0, 0, 0, 0.35), 
+      rgba(0, 0, 0, 0.35)
+    ),
+    url("../images/gcc-temp-background.jpg");
 	background-repeat: no-repeat;
-	background-size: 100vw;
+	background-size: cover;
 	height: 100vh;
 	padding-top: 0;
+	background-attachment: fixed;
+}
+#main_title{
+	text-align: center;
+	font-size: 6em;
+	color: #fff;
+	margin-top: 15%;
 }
 #about_us{
 	background-color: red;
@@ -102,4 +116,22 @@ nav a{
 }
 #contact_us{
 	background-color: brown;
+}
+footer{
+	width: 100%;
+	margin: none;
+	height: 4.5em;
+	background-color: #420001;
+	text-align: center;
+}
+.footer_image{
+	margin: 1.2%;
+	max-height: 2em;
+/*	border-radius: .5em;
+	background-color: #fff;
+	border-color: #000; 8?
+
+}
+@media screen and (min-width: ) and (max-width: ){
+
 }
