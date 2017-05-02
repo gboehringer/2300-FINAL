@@ -109,7 +109,7 @@
 				<div class="row">
 					<div class="col-lg-12">
 						<h2>Where We've Been</h2>
-						<img id="placement" src="placement.png" alt="placement">
+						<img id="placement" src="placements.png" alt="placement">
 					</div>
 				</div>
 			</div>
