@@ -1,5 +1,5 @@
-<?php 
-	session_start(); 
+<?php
+	session_start();
 	if(isset($_SESSION['login_message'])){
 		unset($_SESSION['login_message']);
 	}
@@ -18,7 +18,7 @@
 		<link rel="stylesheet" type="text/css" href="styling/stylesheet.css?v=987658765678123">
 		<link rel="icon" href="images/browser_icon.ico">
 		<title>GCC</title>
-		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js" type="text/javascript"></script> 
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js" type="text/javascript"></script>
 	</head>
 	<body>
 		<nav>
@@ -51,7 +51,7 @@
 			<?php
 				require_once 'config.php';
                 $mysqli = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
-                        
+
                 if($mysqli -> connect_error){
                     die("Connection failed: " . $mysqli->connect_error);
                 }
@@ -60,6 +60,14 @@
 				<div class="row">
 					<div class="col-lg-6">
 						<h2>Who we are</h2>
+						<p>Founded in 2008, Global China Connection (GCC) is a family of highly
+							 motivated students that aims to professionally grow our members and build relationships that will change the world. </p>
+					</div>
+					<div class="col-lg-6">
+						<h2>What we do</h2>
+						<p>As a professional development organization that is part of a global collegiate network (including UPenn, Columbia,
+							Yale), we help our members secure top internships and jobs in the United States and Asia through invaluable networking
+							opportunities while developing a close-knit community of student leaders.</p>
 						<p><?php
 							$who_we_are = $mysqli->query("SELECT * FROM Site_content WHERE content_name = 'who_we_are'");
 		            		$who_content = $who_we_are->fetch_assoc();
@@ -101,7 +109,7 @@
 				<div class="row">
 					<div class="col-lg-12">
 						<h2>Where We've Been</h2>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+						<img id="placement" src="placement.png" alt="placement">
 					</div>
 				</div>
 			</div>
