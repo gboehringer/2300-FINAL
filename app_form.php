@@ -23,10 +23,10 @@
 		</nav>
 		<div class="container-fluid" id="content">
 			<div class="container-fluid section" id="app_form">
-				/*This application form will be used during the GCC recruitment season. We will allow logged in Admin
+				<!--This application form will be used during the GCC recruitment season. We will allow logged in Admin
 				users to either display the form during their recruitment season or hide the form when they are no longer
 				recruiting. When the form is active we will use mysqli to add the information to the Applicants table.
-				Admins will also be able to display and sort the applicant data from the database */
+				Admins will also be able to display and sort the applicant data from the database-->
 				
 				<h2>GCC Application Form</h2>
 				<form method = "post" id = "application">
