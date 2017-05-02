@@ -5,8 +5,10 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width = device-width, initial-scale = 1">
 		<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Lato:300" rel="stylesheet">
 		<link rel="stylesheet" type="text/css" href="styling/bootstrap.min.css">
 		<link rel="stylesheet" type="text/css" href="styling/stylesheet.css?v=11198765678152">
+		<link rel="icon" href="images/browser_icon.ico">
 		<title>GCC</title>
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js" type="text/javascript"></script> 
 	</head>
@@ -39,7 +41,7 @@
 			<h3>Headshot Upload</h3>
 			<input type = 'file' name = 'Headshot' >
 			<h3>Submit Application</h3>
-			<input type = "submit" name = "Submit Application">
+			<input type = "submit" name="Submit Application" >
 			</form>
 			</div>
 		</div>
