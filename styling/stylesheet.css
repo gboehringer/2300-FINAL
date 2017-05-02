@@ -151,9 +151,12 @@ nav a{
 	margin: 0 auto;
 	background-color: #660f11;
 	color: #fff;
-	min-height: 100vh;
 	height: auto;
-	padding-bottom: 180px;
+	overflow: auto;
+}
+#send_message{
+	color: #000;
+	margin-bottom: 30px;
 }
 #app_form{
 	background-color: white;
@@ -204,7 +207,7 @@ footer{
 	height: 2.8em;
 	background-color: #420001;
 	text-align: center;
-	position: relative;
+	
 }
 .footer_image{
 	margin: 1.1%;

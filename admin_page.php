@@ -101,7 +101,7 @@
 	                    die("Connection failed: " . $mysqli->connect_error);
 	                }
 
-	                $stmt = $mysqli->prepare("UPDATE Site_content SET Content = '?' WHERE content_name = 'who_we_are'");
+	                $stmt = $mysqli->prepare("UPDATE Site_content SET Content = ? WHERE content_name = 'who_we_are'");
 	                $stmt->bind_param("s", $new_who_we_are);
 
 					// set parameters and execute
@@ -109,7 +109,7 @@
 					$stmt->execute();
 					$st1 = $stmt->close();
 
-	                $stmt = $mysqli->prepare("UPDATE Site_content SET Content = '?' WHERE content_name = 'what_we_do'");
+	                $stmt = $mysqli->prepare("UPDATE Site_content SET Content = ? WHERE content_name = 'what_we_do'");
 	                $stmt->bind_param("s", $new_what_we_do);
 
 	                $new_what_we_do = filter_input(INPUT_POST, "what_we_do_edit", FILTER_SANITIZE_STRING);

@@ -15,7 +15,7 @@
 		<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css?family=Lato:300" rel="stylesheet">
 		<link rel="stylesheet" type="text/css" href="styling/bootstrap.min.css">
-		<link rel="stylesheet" type="text/css" href="styling/stylesheet.css?v=9876123128123">
+		<link rel="stylesheet" type="text/css" href="styling/stylesheet.css?v=9111212923">
 		<link rel="icon" href="images/browser_icon.ico">
 		<title>GCC</title>
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js" type="text/javascript"></script>
@@ -132,7 +132,7 @@
 							<input type = "text" name="netid" class="message_info" required></p>
 							<p><label>Message</label>
 							<textarea id="message_body" rows="8" required></textarea></p>
-							<input type = "submit" name="submit_message" value="Send">
+							<input type = "submit" name="submit_message" value="Send" id="send_message">
 						</form>
 					</div>
 				</div>
