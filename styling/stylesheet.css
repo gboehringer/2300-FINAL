@@ -115,6 +115,8 @@ nav a{
 #companies{
 	background-color: #660f11;
 	color: #fff;
+	min-height: 100vh;
+	height: auto;
 }
 #apply{
 	background-color: #f0f0f0;

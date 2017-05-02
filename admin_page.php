@@ -101,14 +101,23 @@
 	                    die("Connection failed: " . $mysqli->connect_error);
 	                }
 
-	                $new_who_we_are = filter_input(INPUT_POST, "who_we_are_edit", FILTER_SANITIZE_STRING);;
-	                $new_what_we_do = filter_input(INPUT_POST, "what_we_do_edit", FILTER_SANITIZE_STRING);;
+	                $stmt = $mysqli->prepare("UPDATE Site_content SET Content = '?' WHERE content_name = 'who_we_are'");
+	                $stmt->bind_param("s", $new_who_we_are);
 
-	                $query_who = "UPDATE Site_content SET Content = '$new_who_we_are' WHERE content_name = 'who_we_are'";
-	                $query_what = "UPDATE Site_content SET Content = '$new_what_we_do' WHERE content_name = 'what_we_do'";
+					// set parameters and execute
+					$new_who_we_are = filter_input(INPUT_POST, "who_we_are_edit", FILTER_SANITIZE_STRING);
+					$stmt->execute();
+					$st1 = $stmt->close();
+
+	                $stmt = $mysqli->prepare("UPDATE Site_content SET Content = '?' WHERE content_name = 'what_we_do'");
+	                $stmt->bind_param("s", $new_what_we_do);
+
+	                $new_what_we_do = filter_input(INPUT_POST, "what_we_do_edit", FILTER_SANITIZE_STRING);
+	                $stmt->execute();
+					$st2 = $stmt->close();
 
 	               	unset($_SESSION['about_us_edit_message']);
-	                if($mysqli->query($query_who) && $mysqli->query($query_what)){
+	                if($st1 && $st2){
 	                	$_SESSION['about_us_edit_message'] = "Succesfully edited 'About Us' section(s)";
 	                	header("location: admin_page.php");
                 		exit();

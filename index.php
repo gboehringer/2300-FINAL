@@ -15,7 +15,7 @@
 		<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css?family=Lato:300" rel="stylesheet">
 		<link rel="stylesheet" type="text/css" href="styling/bootstrap.min.css">
-		<link rel="stylesheet" type="text/css" href="styling/stylesheet.css?v=987658765678123">
+		<link rel="stylesheet" type="text/css" href="styling/stylesheet.css?v=9876123128123">
 		<link rel="icon" href="images/browser_icon.ico">
 		<title>GCC</title>
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js" type="text/javascript"></script>
@@ -59,15 +59,7 @@
 			<div class="container-fluid section" id="about_us">
 				<div class="row">
 					<div class="col-lg-6">
-						<h2>Who we are</h2>
-						<p>Founded in 2008, Global China Connection (GCC) is a family of highly
-							 motivated students that aims to professionally grow our members and build relationships that will change the world. </p>
-					</div>
-					<div class="col-lg-6">
 						<h2>What we do</h2>
-						<p>As a professional development organization that is part of a global collegiate network (including UPenn, Columbia,
-							Yale), we help our members secure top internships and jobs in the United States and Asia through invaluable networking
-							opportunities while developing a close-knit community of student leaders.</p>
 						<p><?php
 							$who_we_are = $mysqli->query("SELECT * FROM Site_content WHERE content_name = 'who_we_are'");
 		            		$who_content = $who_we_are->fetch_assoc();
@@ -109,7 +101,7 @@
 				<div class="row">
 					<div class="col-lg-12">
 						<h2>Where We've Been</h2>
-						<img id="placement" src="placements.png" alt="placement">
+						<img id="placement" src="images/placements.png" alt="placement">
 					</div>
 				</div>
 			</div>
