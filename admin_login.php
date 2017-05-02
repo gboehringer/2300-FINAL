@@ -1,6 +1,6 @@
 <!-- username: admin123
 	 password: password -->
-	 
+
 <?php session_start();?>
 <!DOCTYPE html>
 <html>
@@ -25,6 +25,7 @@
 				<?php
 					if(isset($_SESSION['logged_user'])){
 						echo "<a href='logout.php'>Logout</a>";
+						echo "<a href='admin_page.php'>Admin Page</a>";
 					}
 				?>
 				<a href="index.php">Return to Homepage</a>

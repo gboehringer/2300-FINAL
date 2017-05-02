@@ -23,26 +23,26 @@
 		</nav>
 		<div class="container-fluid" id="content">
 			<div class="container-fluid section" id="app_form">
-			<h2>GCC Application Form</h2>
-			<form method = "post" id = "application">
-			<input type = "text" name = "firstname" placeholder = "First Name" required>
-			<input type = "text" name = "firstname" placeholder = "Middle Name - Optional">
-			<input type = "text" name = "lastname" placeholder = "Last Name" required>
-			<select name="year">
-  				<option value="Freshman">Freshman</option>
- 				<option value="Sophomore">Sophomore</option>
-  				<option value="Junior">Junior</option>
-  				<option value="Senior">Senior</option>
-			</select>
-			<h3>Resume Upload</h3>
-			<input type = 'file' name = 'Resume' required>
-			<h3>Cover Letter Upload - Optional</h3>
-			<input type = 'file' name = 'Optional Cover Letter'>
-			<h3>Headshot Upload</h3>
-			<input type = 'file' name = 'Headshot' >
-			<h3>Submit Application</h3>
-			<input type = "submit" name="Submit Application" >
-			</form>
+				<h2>GCC Application Form</h2>
+				<form method = "post" id = "application">
+				<input type = "text" name = "firstname" placeholder = "First Name" required>
+				<input type = "text" name = "firstname" placeholder = "Middle Name - Optional">
+				<input type = "text" name = "lastname" placeholder = "Last Name" required>
+				<select name="year">
+	  				<option value="Freshman">Freshman</option>
+	 				<option value="Sophomore">Sophomore</option>
+	  				<option value="Junior">Junior</option>
+	  				<option value="Senior">Senior</option>
+				</select>
+				<h3>Resume Upload</h3>
+				<input type = 'file' name = 'Resume' required>
+				<h3>Cover Letter Upload - Optional</h3>
+				<input type = 'file' name = 'Optional Cover Letter'>
+				<h3>Headshot Upload</h3>
+				<input type = 'file' name = 'Headshot' >
+				<h3>Submit Application</h3>
+				<input type = "submit" name="Submit Application" >
+				</form>
 			</div>
 		</div>
 			

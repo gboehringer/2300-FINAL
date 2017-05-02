@@ -1,5 +1,9 @@
 <?php 
-	session_start(); 
+	session_start();
+	if(!isset($_SESSION['logged_user'])){
+		header("location: index.php");
+        exit();
+	} 
 	if(isset($_SESSION['login_message'])){
 		unset($_SESSION['login_message']);
 	}
@@ -15,23 +19,19 @@
 		<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css?family=Lato:300" rel="stylesheet">
 		<link rel="stylesheet" type="text/css" href="styling/bootstrap.min.css">
-		<link rel="stylesheet" type="text/css" href="styling/stylesheet.css?v=987658765678123">
+		<link rel="stylesheet" type="text/css" href="styling/stylesheet.css?v=11432987678978152">
 		<link rel="icon" href="images/browser_icon.ico">
-		<title>GCC</title>
+		<title>GCC - Admin</title>
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js" type="text/javascript"></script> 
 	</head>
 	<body>
 		<nav>
 			<div id="icon">
-				<a href="#top"><img id="gcc_icon" src="images/gcc_gen.png" alt="gcc_icon"></a>
+				<a href="index.php"><img id="gcc_icon" src="images/gcc_gen.png" alt="gcc_icon"></a>
 			</div>
 			<div id="tabs">
-				<?php
-					if(isset($_SESSION['logged_user'])){
-						echo "<a href='logout.php'>Logout</a>";
-						echo "<a href='admin_page.php'>Admin Page</a>";
-					}
-				?>
+				<a href='logout.php'>Logout</a>
+				<a href='admin_page.php'>Admin Page</a>
 				<a href="#contact_us">Contact Us</a>
 				<a href="#apply">Apply</a>
 				<a href="#companies">Companies</a>
@@ -48,38 +48,79 @@
 				</div>
 			</div>
 
-			<?php
-				require_once 'config.php';
-                $mysqli = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
-                        
-                if($mysqli -> connect_error){
-                    die("Connection failed: " . $mysqli->connect_error);
-                }
-			?>
 			<div class="container-fluid section" id="about_us">
 				<div class="row">
-					<div class="col-lg-6">
-						<h2>Who we are</h2>
-						<p><?php
-							$who_we_are = $mysqli->query("SELECT * FROM Site_content WHERE content_name = 'who_we_are'");
-		            		$who_content = $who_we_are->fetch_assoc();
-		            		$text = $who_content['Content'];
-		            		echo $text;
-	            		?></p>
-					</div>
-					<div class="col-lg-6">
-						<h2>What we do</h2>
-						<p><?php
-							$what_we_do = $mysqli->query("SELECT * FROM Site_content WHERE content_name = 'what_we_do'");
-		            		$what_content = $what_we_do->fetch_assoc();
-		            		$text = $what_content['Content'];
-		            		echo $text;
-		            		$mysqli->close();
-	            		?></p>
-					</div>
+					<form method="POST">
+						<?php
+							require_once 'config.php';
+	                        $mysqli = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
+	                                
+	                        if($mysqli -> connect_error){
+	                            die("Connection failed: " . $mysqli->connect_error);
+	                        }
+						?>
+						<div class="col-lg-6">
+							<h2>Who we are</h2>
+							<p><textarea class="edit_input" name="who_we_are_edit" rows="6" maxlength="800"><?php
+									$who_we_are = $mysqli->query("SELECT * FROM Site_content WHERE content_name = 'who_we_are'");
+	                        		$who_content = $who_we_are->fetch_assoc();
+	                        		$text = $who_content['Content'];
+	                        		echo $text;
+	                        		?></textarea></p>
+						</div>
+						<div class="col-lg-6">
+							<h2>What we do</h2>
+							<p><textarea class="edit_input" name="what_we_do_edit" rows="6" maxlength="800"><?php
+									$what_we_do = $mysqli->query("SELECT * FROM Site_content WHERE content_name = 'what_we_do'");
+	                        		$what_content = $what_we_do->fetch_assoc();
+	                        		$text = $what_content['Content'];
+	                        		echo $text;
+	                        		$mysqli->close();
+								?></textarea></p>
+						</div>
+						<div>
+							<input class="check_box" type="checkbox" name="about_us_check" required><label class="check_box_label">Confirm Changes</label>
+							<input type="submit" name="about_us_submit" value="Submit Changes" id="subm">
+						</div>
+						<?php
+							if(isset($_SESSION['about_us_edit_message'])){
+								$about_us_message = $_SESSION['about_us_edit_message'];
+								echo ("<p class='changes_message'>$about_us_message</p>");
+								unset($_SESSION['about_us_edit_message']);
+							}
+						?>
+					</form>
 				</div>
 			</div>
+			<?php
+				if(isset($_POST['about_us_submit']) && isset($_POST['about_us_check'])){
+					require_once 'config.php';
+	                $mysqli = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
+	                        
+	                if($mysqli -> connect_error){
+	                    die("Connection failed: " . $mysqli->connect_error);
+	                }
 
+	                $new_who_we_are = filter_input(INPUT_POST, "who_we_are_edit", FILTER_SANITIZE_STRING);;
+	                $new_what_we_do = filter_input(INPUT_POST, "what_we_do_edit", FILTER_SANITIZE_STRING);;
+
+	                $query_who = "UPDATE Site_content SET Content = '$new_who_we_are' WHERE content_name = 'who_we_are'";
+	                $query_what = "UPDATE Site_content SET Content = '$new_what_we_do' WHERE content_name = 'what_we_do'";
+
+	               	unset($_SESSION['about_us_edit_message']);
+	                if($mysqli->query($query_who) && $mysqli->query($query_what)){
+	                	$_SESSION['about_us_edit_message'] = "Succesfully edited 'About Us' section(s)";
+	                	header("location: admin_page.php");
+                		exit();
+	                }
+	                else{
+	                	$_SESSION['about_us_edit_message'] = "Failed to edit 'About Us' section(s)";
+	                	header("location: admin_page.php");
+                		exit();	
+	                }
+	                $mysqli->close();
+				}
+			?>
 			<div class="container-fluid section" id="our_members">
 				<h2>Our Members</h2><br/>
 				<div class="row" id="member_list">
@@ -121,19 +162,6 @@
 					<div class="col-lg-12">
 						<h2>Contact Us</h2>
 						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-					</div>
-					<div class="container-fluid section">
-						<form method = "post" id = "contact_form">
-							<p><label>Name</label>
-							<input type = "text" name="firstname" class="message_info" required></p>
-							<p><label>Email</label>
-							<input type = "text" name="email" class="message_info" required></p>
-							<p><label>NetID</label>
-							<input type = "text" name="netid" class="message_info" required></p>
-							<p><label>Message</label>
-							<textarea id="message_body" rows="8" required></textarea></p>
-							<input type = "submit" name="submit_message" value="Send">
-						</form>
 					</div>
 				</div>
 			</div>
