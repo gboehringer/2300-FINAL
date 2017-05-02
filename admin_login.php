@@ -1,3 +1,6 @@
+<!-- username: admin123
+	 password: password -->
+	 
 <?php session_start();?>
 <!DOCTYPE html>
 <html>
