@@ -3,6 +3,11 @@
 	if(isset($_SESSION['login_message'])){
 		unset($_SESSION['login_message']);
 	}
+	if(isset($_SESSION['message_submit'])){
+		unset($_SESSION['message_submit']);
+		header("location: index.php");
+		exit();
+	}
 ?>
 <!DOCTYPE html>
 <html lang = "en">
@@ -15,7 +20,7 @@
 		<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css?family=Lato:300" rel="stylesheet">
 		<link rel="stylesheet" type="text/css" href="styling/bootstrap.min.css">
-		<link rel="stylesheet" type="text/css" href="styling/stylesheet.css?v=9111212923">
+		<link rel="stylesheet" type="text/css" href="styling/stylesheet.css?v=99998882923">
 		<link rel="icon" href="images/browser_icon.ico">
 		<title>GCC</title>
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js" type="text/javascript"></script>
@@ -59,7 +64,7 @@
 			<div class="container-fluid section" id="about_us">
 				<div class="row">
 					<div class="col-lg-6">
-						<h2>What we do</h2>
+						<h2>Who we are</h2>
 						<p><?php
 							$who_we_are = $mysqli->query("SELECT * FROM Site_content WHERE content_name = 'who_we_are'");
 		            		$who_content = $who_we_are->fetch_assoc();
@@ -122,18 +127,61 @@
 						<h2>Contact Us</h2>
 						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 					</div>
-					<div class="container-fluid section">
-						<form method = "post" id = "contact_form">
-							<p><label>Name</label>
-							<input type = "text" name="firstname" class="message_info" required></p>
+					<div id="contact_div" class="container-fluid section">
+						<form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>" id="contact_form">
+							<p><label>Name</label>	
+							<input type = "text" name="sender_name" class="message_info" maxlength="45" required></p>
 							<p><label>Email</label>
-							<input type = "text" name="email" class="message_info" required></p>
-							<p><label>NetID</label>
-							<input type = "text" name="netid" class="message_info" required></p>
+							<input type = "text" name="sender_email" class="message_info" maxlength="50" required></p>
+							<p><label>Subject</label>
+							<input type = "text" name="subject" class="message_info" maxlength="60" required></p>
 							<p><label>Message</label>
-							<textarea id="message_body" rows="8" required></textarea></p>
+							<textarea name="message_body" id="message_body" rows="8" maxlength="3500" required></textarea></p>
 							<input type = "submit" name="submit_message" value="Send" id="send_message">
+							<?php
+								if(isset($_SESSION['message_status'])){
+									$message_status = $_SESSION['message_status'];
+									print "<p>$message_status</p>";
+									unset($_SESSION['message_status']);
+								}
+							?>
 						</form>
+						<?php
+							if(isset($_POST['submit_message'])){
+								$sender_name = filter_input(INPUT_POST, "sender_name", FILTER_SANITIZE_STRING);
+								$sender_email = filter_input(INPUT_POST, "sender_email", FILTER_SANITIZE_STRING);
+								$subject = filter_input(INPUT_POST, "subject", FILTER_SANITIZE_STRING);
+								$raw_message = filter_input(INPUT_POST, "message_body", FILTER_SANITIZE_STRING);
+								$info_message = "From: $sender_name\nEmail: $sender_email\n\nBody:\n".$raw_message;
+
+								$message = wordwrap($info_message, 120, "\r\n");
+
+								require_once 'config.php';
+				                $mysqli = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
+				                        
+				                if($mysqli -> connect_error){
+				                    die("Connection failed: " . $mysqli->connect_error);
+				                }
+
+				                $content = $mysqli->query("SELECT * FROM Site_content WHERE content_name = 'contact_email_recipient'");
+				                $email_info = $content->fetch_assoc();
+
+				                $recipient_email = $email_info['Content'];
+
+								// Send
+								$sent = mail($recipient_email, $subject, $message);
+								$mysqli->close();
+								if($sent){
+									$_SESSION['message_status'] = "Message Sent";
+								}
+								else{
+									$_SESSION['message_status'] = "Failed to Send Message";
+								}
+								$_SESSION['message_submit'] = "true";
+								print "<script>window.location.hash = '#contact_us';window.location.reload(true);</script>";
+							//	unset($_POST['submit_message']);
+							}
+						?>
 					</div>
 				</div>
 			</div>

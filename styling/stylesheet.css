@@ -66,6 +66,7 @@ nav a{
 	margin: none;
 	padding: 90px 6%;
 	height: 100vh;
+	overflow: auto;
 }
 #top{
 	background: 
@@ -153,10 +154,15 @@ nav a{
 	color: #fff;
 	height: auto;
 	overflow: auto;
+	padding: none;
 }
 #send_message{
 	color: #000;
 	margin-bottom: 30px;
+}
+#contact_div{
+	padding: 10px;
+	height: auto;
 }
 #app_form{
 	background-color: white;
