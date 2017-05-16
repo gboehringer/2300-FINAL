@@ -4,7 +4,7 @@ body{
 	background-color: #f5f5f5;
     font-size: 2.5em;
     /*font-family: "Trebuchet MS", Helvetica, sans-serif; */
-    font-family: 'Lato', sans-serif;	
+    font-family: 'Lato', sans-serif;
     line-height: 1.5;
     margin:auto;
     padding: 0;
@@ -69,10 +69,10 @@ nav a{
 	overflow: auto;
 }
 #top{
-	background: 
-    /* top, transparent red, faked with gradient */ 
+	background:
+    /* top, transparent red, faked with gradient */
     linear-gradient(
-      rgba(0, 0, 0, 0.35), 
+      rgba(0, 0, 0, 0.35),
       rgba(0, 0, 0, 0.35)
     ),
     url("../images/gcc-temp-background.jpg");
@@ -101,6 +101,7 @@ nav a{
 }
 #member_list{
 	text-align: center;
+	font-size: 0.50em;
 }
 .member_profile{
 	padding: 20px 0px 15px 0px;
@@ -200,8 +201,8 @@ input[type=password]:focus {
 
 input[type=submit] {
 	width: 200px;
-    padding:5px 15px; 
-    background:#ccc; 
+    padding:5px 15px;
+    background:#ccc;
     border:0 none;
     cursor:pointer;
     -webkit-border-radius: 5px;
@@ -213,7 +214,7 @@ footer{
 	height: 2.8em;
 	background-color: #420001;
 	text-align: center;
-	
+
 }
 .footer_image{
 	margin: 1.1%;
