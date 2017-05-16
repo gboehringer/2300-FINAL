@@ -34,12 +34,14 @@ body{
 #nav_bar ul {
   display: inline-block;
 	list-style-type: none;
-	margin-top: 1.5em;
+	margin: 0;
 }
 
 #nav_bar li {
 	float: right;
 	color: white;
+	padding-top: 1.5em;
+	padding-bottom: 1.5em;
 	padding-right: 1em;
 	padding-left: 1em;
 }
@@ -50,7 +52,7 @@ body{
 	color: white;
 }
 
-#tabs1 li:hover{
+#tabs1:hover{
 	background-color: #510102;
 	color: #fff;
   }
@@ -146,6 +148,11 @@ nav a{
 	text-align: center;
 	font-size: 0.5em;
 }
+#new_member{
+	text-align: left;
+	font-size: 1.1em;
+}
+
 .member_profile{
 	padding: 10px 0px 10px 0px;
 }

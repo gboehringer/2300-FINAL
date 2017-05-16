@@ -11,7 +11,7 @@
 		<link rel="stylesheet" type="text/css" href="styling/stylesheet.css?v=11198765678152">
 		<link rel="icon" href="images/browser_icon.ico">
 		<title>GCC</title>
-		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js" type="text/javascript"></script> 
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js" type="text/javascript"></script>
 	</head>
 	<body>
 		<nav>
@@ -23,7 +23,7 @@
 			</div>
 		</nav>
 		<div class="container-fluid" id="content">
-            
+
             <?php
                 if(isset($_SESSION['logged_user'])){
                     echo("<div class = 'container-fluid section' id = 'view_app'>");
@@ -44,14 +44,14 @@
                             print("<p><b>$first_name $last_name</b></p>");
                             print("<p>Class of $class</p>");
                             print("<p>Major: $major</p>");
-                            print( '</div>' );     
+                            print( '</div>' );
                             }
-                            print( '</div>' ); 
-                        print( '</div>' );                    
+                            print( '</div>' );
+                        print( '</div>' );
                     }
                 ?>
 
- 
+
             <?php
                 if(isset($_SESSION['logged_user'])){
                     echo("<h3>Delete Applicant Data</h3>");
@@ -63,17 +63,17 @@
                         $mysqli = new mysqli( DB_HOST, DB_USER, DB_PASSWORD, DB_NAME );
                         $del = "TRUNCATE TABLE Applicants";
                         echo("<h3>Applicants Deleted</h3>");
-                  
+
                         }
                     }
-                ?>                    
+                ?>
             </div>
 			<div class="container-fluid section" id="app_form">
 				<!--This application form will be used during the GCC recruitment season. We will allow logged in Admin
 				users to either display the form during their recruitment season or hide the form when they are no longer
 				recruiting. When the form is active we will use mysqli to add the information to the Applicants table.
 				Admins will also be able to display and sort the applicant data from the database-->
-				
+
 				<h2>GCC Application Form</h2>
 				<form method = "post" enctype = 'multipart/form-data'  id = "application">
 				<input type = "text" name = "firstname" placeholder = "First Name" required>
@@ -82,16 +82,16 @@
 				<input type = "text" name = "major" placeholder = "Major" required>
 				<input type = "text" name = "net_id" placeholder = "Net ID" required>
 				<input type = "text" name = "year" placeholder = "Graduation Year" required>
-				<h3>Resume Upload (.pdf or .doc)</h3>
+				<h4>Resume Upload (.pdf or .doc)</h4>
 				<input type = 'file' name = 'resume' required>
-				<h3>Headshot Upload</h3>
+				<h4>Headshot Upload</h4>
 				<input type = 'file' name = 'headshot' >
-				<h3>Submit Application</h3>
+				<h4>Submit Application</h4>
 				<input type = "submit" value = "Apply" name="submit" >
 				</form>
 			</div>
 		</div>
-			
+
 		<?php
 			require_once 'config.php';
             $mysqli = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
@@ -105,17 +105,17 @@
 				$data = stripslashes($data);
 				$data = htmlspecialchars($data);
 				return $data;
-			}        
+			}
 
 		// Checks if form was submitted
  		if (isset($_POST['submit'])) {
  			//Validates that file is an image
  			if (!empty($_FILES['headshot']['tmp_name']) && !($_FILES['headshot']['error'] >0) && ($_FILES['headshot']['size'] < 5242880)) {
-         
+
             	if (@getimagesize($_FILES['headshot']['tmp_name']) ===FALSE){
                 	die("Invalid File Type");
                 	return;
-            	}	
+            	}
             	else{
     		    	$newImage = $_FILES['headshot'];
                 	$tmp = $newImage['tmp_name'];
@@ -128,7 +128,7 @@
                 $headshotName = 'default.png';
             }
 
-			//Validates that file is a pdf or doc 
+			//Validates that file is a pdf or doc
  			if (!empty($_FILES['resume']['tmp_name']) && !($_FILES['resume']['error'] >0) && ($_FILES['resume']['size'] < 5242880)) {
  					$finfo = finfo_open(FILEINFO_MIME_TYPE);
 					$mime = finfo_file($finfo, $_FILES['resume']['tmp_name']);
@@ -142,13 +142,13 @@
                			default:
                 			die("Invalid File Type");
                 			return;
-            	}	          
+            	}
     		    	$newImage = $_FILES['resume'];
                		$tmp = $newImage['tmp_name'];
     		    	$resumeName = $newImage['name'];
     		    	$resumeName = filter_var($resumeName, FILTER_SANITIZE_URL);
 			    	move_uploaded_file($tmp, "applicants/resumes/$resumeName");
-				
+
 			//Validation for net_id
             if (!empty($_POST['net_id'])){
     			if (ctype_alnum($_POST['net_id'])){
@@ -157,7 +157,7 @@
                 else{
                     echo ("Please enter a valid net id");
                     return;
-                }   
+                }
        		}
 
        		//validation for first name
@@ -168,7 +168,7 @@
             	else{
             		echo ("Please enter a valid first name");
             		return;
-            	}            	
+            	}
        		}
 
        		//validation for middle name
@@ -189,7 +189,7 @@
             		echo ("Please enter a valid major or 'Undecided'");
             		return;
             	}
-        	}   
+        	}
 
         	//validation for last name
             if (!empty($_POST['lastname'])){
@@ -213,8 +213,8 @@
         	}
 
         	$date = date('Y-m-d H:i:s');
-        	$pathheadshot = "applicants/headshots/$headshotName";	
-        	$pathresume = "applicants/resumes/$resumeName";	
+        	$pathheadshot = "applicants/headshots/$headshotName";
+        	$pathresume = "applicants/resumes/$resumeName";
         	$add = "INSERT INTO Applicants (net_id,firstName,lastName,middleName,grad_year,major,date_applied,headshot_path,resume_path) VALUES('$net','$firstname','$lastname','$middlename','$year','$major','$date','$pathheadshot','$pathresume')";
         	//Inserts data into Applicants Database
         	if($mysqli->query($add)){
@@ -225,17 +225,17 @@
         		echo("Invalid Entry. Please resubmit your application.");
         	}
         }
-        
+
 
 	   }
-    
-		
 
 
-    		
+
+
+
 		?>
 
 
-		
+
 	</body>
 </html>
