@@ -1,9 +1,9 @@
-<?php 
+<?php
 	session_start();
 	if(!isset($_SESSION['logged_user'])){
 		header("location: index.php");
         exit();
-	} 
+	}
 	if(isset($_SESSION['login_message'])){
 		unset($_SESSION['login_message']);
 	}
@@ -22,7 +22,7 @@
 		<link rel="stylesheet" type="text/css" href="styling/stylesheet.css?v=11432987678978152">
 		<link rel="icon" href="images/browser_icon.ico">
 		<title>GCC - Admin</title>
-		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js" type="text/javascript"></script> 
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js" type="text/javascript"></script>
 	</head>
 	<body>
 		<nav>
@@ -54,7 +54,7 @@
 						<?php
 							require_once 'config.php';
 	                        $mysqli = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
-	                                
+
 	                        if($mysqli -> connect_error){
 	                            die("Connection failed: " . $mysqli->connect_error);
 	                        }
@@ -96,7 +96,7 @@
 				if(isset($_POST['about_us_submit']) && isset($_POST['about_us_check'])){
 					require_once 'config.php';
 	                $mysqli = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
-	                        
+
 	                if($mysqli -> connect_error){
 	                    die("Connection failed: " . $mysqli->connect_error);
 	                }
@@ -125,7 +125,7 @@
 	                else{
 	                	$_SESSION['about_us_edit_message'] = "Failed to edit 'About Us' section(s)";
 	                	header("location: admin_page.php");
-                		exit();	
+                		exit();
 	                }
 	                $mysqli->close();
 				}
@@ -134,14 +134,23 @@
 				<h2>Our Members</h2><br/>
 				<div class="row" id="member_list">
 					<?php
-						for($j = 0; $j < 13; $j++){
-							echo "<div class='col-lg-3 col-md-3 col-sm-4 col-xs-6 member_profile'>
-									<img src='images/no-image-profile.png' alt='profile picture' class='member_headshot'>
-									<p><b>FirstName LastName</b></p>
-									<p>Position: [list position]</p>
-									<p>Class of 20XX</p>
-									<p>Major: [list major]</p>
-								</div>";
+						require_once 'config.php';
+						$mysqli = new mysqli( DB_HOST, DB_USER, DB_PASSWORD, DB_NAME );
+						$allMembers = $mysqli->query("SELECT * FROM Members");
+
+						while($row = $allMembers->fetch_assoc()){
+							print("<div class='col-lg-3 col-md-3 col-sm-4 col-xs-6 member_profile'>");
+							$img_src = $row['headshot_path'];
+							$first_name = $row['firstName'];
+							$last_name = $row['lastName'];
+							$class = $row['grad_year'];
+							$major = $row['major'];
+							$href = $row['linkedin_path'];
+							print("<a href='$href' title='linkedin'><img src='members/headshots/$img_src' alt='profile picture' class='member_headshot'></a>");
+							print("<p><b>$first_name $last_name</b></p>");
+							print("<p>Class of $class</p>");
+							print("<p>$major</p>");
+							print( '</div>' );
 						}
 					?>
 				</div>
