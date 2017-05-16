@@ -120,6 +120,19 @@ nav a{
 	color: #fff;
 	min-height: 100vh;
 	height: auto;
+	float: left;
+}
+/*#placements_image{
+	display: block;
+	width: 40%;
+	text-align: center;
+}*/
+#placement{
+	width: 100%;
+	max-width: 1000px;
+}
+#placements_description{
+	padding: 0px 20px;
 }
 #apply{
 	background-color: #f0f0f0;
