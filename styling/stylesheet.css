@@ -101,14 +101,13 @@ nav a{
 }
 #member_list{
 	text-align: center;
-	font-size: 0.50em;
+	font-size: 0.5em;
 }
 .member_profile{
-	padding: 20px 0px 15px 0px;
+	padding: 10px 0px 10px 0px;
 }
 .member_headshot{
 	width: 200px;
-/*	border-radius: 50%;*/
 	border-width: 1px;
 	border-color: #fff;
 	border-style: solid;
