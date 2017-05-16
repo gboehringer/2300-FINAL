@@ -84,7 +84,7 @@ nav a{
 }
 #main_title{
 	text-align: center;
-	font-size: 4em;
+	font-size: 3em;
 	color: #fff;
 	margin-top: 15%;
 }
@@ -107,14 +107,16 @@ nav a{
 	padding: 10px 0px 10px 0px;
 }
 .member_headshot{
-	width: 200px;
-	/*border-radius: 50%;*/
+	width: 150px;
+	height: 230px;
+	border-radius: 50%;
 	border-width: 1px;
 	border-color: #fff;
 	border-style: solid;
 }
 .member_headshot:hover{
-	width: 200px;
+	width: 160px;
+	border-radius: 50%;
 	border-width: 1px;
 	border-color: #000;
 	border-style: solid;

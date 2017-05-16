@@ -50,6 +50,23 @@
                         print( '</div>' );                    
                     }
                 ?>
+
+ 
+            <?php
+                if(isset($_SESSION['logged_user'])){
+                    echo("<h3>Delete Applicant Data</h3>");
+                    echo('<form method="post">
+                    <input type="submit" name = "Delete" value="Delete">
+                    </form');
+                    if (isset($_POST['Delete'])) {
+                        require_once 'config.php';
+                        $mysqli = new mysqli( DB_HOST, DB_USER, DB_PASSWORD, DB_NAME );
+                        $del = "TRUNCATE TABLE Applicants";
+                        echo("<h3>Applicants Deleted</h3>");
+                  
+                        }
+                    }
+                ?>                    
             </div>
 			<div class="container-fluid section" id="app_form">
 				<!--This application form will be used during the GCC recruitment season. We will allow logged in Admin
@@ -137,6 +154,10 @@
     			if (ctype_alnum($_POST['net_id'])){
                 	$net = validate($_POST['net_id']);
             	}
+                else{
+                    echo ("Please enter a valid net id");
+                    return;
+                }   
        		}
 
        		//validation for first name
