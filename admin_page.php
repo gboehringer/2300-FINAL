@@ -19,7 +19,7 @@
 		<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css?family=Lato:300" rel="stylesheet">
 		<link rel="stylesheet" type="text/css" href="styling/bootstrap.min.css">
-		<link rel="stylesheet" type="text/css" href="styling/stylesheet.css?v=1978152">
+		<link rel="stylesheet" type="text/css" href="styling/stylesheet.css?v=196546778152">
 		<link rel="icon" href="images/browser_icon.ico">
 		<title>GCC - Admin</title>
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js" type="text/javascript"></script>
@@ -139,7 +139,7 @@
 						$allMembers = $mysqli->query("SELECT * FROM Members");
 
 						while($row = $allMembers->fetch_assoc()){
-							print("<div class='col-lg-3 col-md-3 col-sm-4 col-xs-6 member_profile'>");
+							print("<div class='col-lg-3 col-md-4 col-sm-4 col-xs-6 member_profile'>");
 							$img_src = $row['headshot_path'];
 							$first_name = $row['firstName'];
 							$last_name = $row['lastName'];

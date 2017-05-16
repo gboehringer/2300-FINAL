@@ -94,7 +94,7 @@ nav a{
 	height: auto;
 }
 #our_members{
-	background-color: #f0f0f0;
+	background-color: #fff;
 	line-height: .8;
 	min-height: 100vh;
 	height: auto;
@@ -107,7 +107,7 @@ nav a{
 	padding: 20px 0px 15px 0px;
 }
 .member_headshot{
-	width: 160px;
+	width: 200px;
 /*	border-radius: 50%;*/
 	border-width: 1px;
 	border-color: #fff;
