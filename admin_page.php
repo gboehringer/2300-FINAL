@@ -221,7 +221,7 @@
 									<p>Current Email Receiving Messages: <?php echo $email;?></p>
 								</div>
 								<div>
-									<label>New Email Address:</label><input type="text" name="new_address" placeholder="New Email Address" maxlength="150" required>
+									<p><label>New Email Address:</label><input type="text" name="new_address" placeholder="example@cornell.edu" maxlength="150" required></p>
 									<input class="check_box" type="checkbox" name="contact_us_check" required><label class="check_box_label">Confirm Changes</label>
 									<input type="submit" name="contact_us_submit" value="Submit Changes" id="subm">
 								</div>

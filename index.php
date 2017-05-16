@@ -20,7 +20,7 @@
 		<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css?family=Lato:300" rel="stylesheet">
 		<link rel="stylesheet" type="text/css" href="styling/bootstrap.min.css">
-		<link rel="stylesheet" type="text/css" href="styling/stylesheet.css?v=6543568882923">
+		<link rel="stylesheet" type="text/css" href="styling/stylesheet.css?v=986876966923">
 		<link rel="icon" href="images/browser_icon.ico">
 		<title>GCC</title>
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js" type="text/javascript"></script>
@@ -128,8 +128,8 @@
 								<li>Amazon</li>
 								<li>Bloomberg</li>
 								<li>J.P.Morgan</li>
-								<li>Bak of China</li>
-								<li>Well Fargo</li>
+								<li>Bank of China</li>
+								<li>Wells Fargo</li>
 								<li>RBC Royal Bank</li>
 								<li>Optiver</li>
 								<li>Barclays</li>
@@ -159,7 +159,7 @@
 				<div class="row">
 					<div class="col-lg-12">
 						<h2>Contact Us</h2>
-						<p>Send us a message if you're interested in working with us or just want to find out more!</p>
+						<p>Send us a message if you're interested in working with us or just want to find out more about who we are!</p>
 					</div>
 					<div id="contact_div" class="container-fluid section">
 						<form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>" id="contact_form">

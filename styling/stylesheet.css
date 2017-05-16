@@ -11,13 +11,21 @@ body{
     height: 100%;
     color: #000;
 }
+*{
+	outline: none;
+}
 #content{
 	max-height: 100%;
 	padding: 0px;
 }
+<<<<<<< HEAD
 
 
 #nav_bar {
+=======
+nav{
+	text-decoration: none;
+>>>>>>> bfa905014c745d4157403913e4ee23507e768e19
 	width: 100%;
 	top: 0px;
     position: fixed;
@@ -30,6 +38,7 @@ body{
 		list-style: none;
 
 }
+<<<<<<< HEAD
 
 #nav_bar ul {
   display: inline-block;
@@ -48,6 +57,16 @@ body{
     display: block;
     text-decoration: none;
 	color: white;
+=======
+nav a{
+	text-decoration: none;
+    display: inline-block;
+    color: #fff;
+    height: 80px;
+    line-height: 80px;
+    margin: 0 auto;
+    padding: 0 1%;
+>>>>>>> bfa905014c745d4157403913e4ee23507e768e19
 }
 
 #tabs1 li:hover{
@@ -62,11 +81,17 @@ body{
 }
 
 #tabs a{
+	text-decoration: none;
 	float: right;
 	padding: 0 2%;
+<<<<<<< HEAD
 text-decoration: none;
+=======
+	color: #fff;
+>>>>>>> bfa905014c745d4157403913e4ee23507e768e19
 }
 #tabs a:hover{
+	text-decoration: none;
 	background-color: #510102;
 	color: #fff;
 }
@@ -127,7 +152,7 @@ nav a{
 }
 #main_title{
 	text-align: center;
-	font-size: 3em;
+	font-size: 4em;
 	color: #fff;
 	margin-top: 15%;
 }
@@ -150,16 +175,14 @@ nav a{
 	padding: 10px 0px 10px 0px;
 }
 .member_headshot{
-	width: 150px;
-	height: 230px;
+	width: 210px;
 	border-radius: 50%;
+	/*border-radius: 50%;*/
 	border-width: 1px;
 	border-color: #fff;
 	border-style: solid;
 }
 .member_headshot:hover{
-	width: 160px;
-	border-radius: 50%;
 	border-width: 1px;
 	border-color: #000;
 	border-style: solid;
@@ -253,7 +276,7 @@ input[type=text] {
     color: #000;
 }
 input[type=text]:focus {
-    border: 3px solid #555;
+    border: 1px solid #000;
     color: #000;
 }
 input[type=password] {
@@ -263,7 +286,7 @@ input[type=password] {
     box-sizing: border-box;
 }
 input[type=password]:focus {
-    border: 3px solid #555;
+    border: 1px solid #000;
 }
 
 input[type=submit] {
