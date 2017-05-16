@@ -27,6 +27,7 @@
             <?php
                 if(isset($_SESSION['logged_user'])){
                     echo("<div class = 'container-fluid section' id = 'view_app'>");
+                    echo("<h2>Current Applicants: Click on Profile Picture to view resume</h2>");
                         echo("<div class='row' id='app_list'>");
                         require_once 'config.php';
                         $mysqli = new mysqli( DB_HOST, DB_USER, DB_PASSWORD, DB_NAME );

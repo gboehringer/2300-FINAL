@@ -108,8 +108,15 @@ nav a{
 }
 .member_headshot{
 	width: 200px;
+	/*border-radius: 50%;*/
 	border-width: 1px;
 	border-color: #fff;
+	border-style: solid;
+}
+.member_headshot:hover{
+	width: 200px;
+	border-width: 1px;
+	border-color: #000;
 	border-style: solid;
 }
 .member_headshot:hover{
@@ -276,6 +283,27 @@ footer{
 .message_info{
 	color: #000;
 }
-@media screen and (min-width: ) and (max-width: ){
+
+/**********************/
+/* responsive styling */
+/**********************/
+
+@media screen and (max-width: 1200px) {
+	nav {
+			font-size: .7em;
+	}
+}
+
+@media screen and (max-width: 1000px) {
+	nav {
+	    font-size: .5em;
+	}
+	#main_title{
+		padding-top: 2em;
+		font-size: 2em;
+	}
+}
+
+@media screen and (max-width: 620px) {
 
 }

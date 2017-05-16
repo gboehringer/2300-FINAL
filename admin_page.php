@@ -153,7 +153,7 @@
 							print( '</div>' );
 						}
 					?>
-				</div>
+
 				<div class="container-fluid section" id="new_member">
 
 					<h2>Add New Member</h2>
@@ -167,11 +167,12 @@
 					<h3>Resume Upload (.pdf or .doc)</h3>
 					<input type = 'file' name = 'resume' required>
 					<h3>Headshot Upload</h3>
-					<input type = 'file' name = 'headshot' >
+					<input type = 'file' name = 'headshot' ><br><br>
 					<input type = "submit" value = "Add New Member" name="submit" >
 					</form>
 				</div>
 				<?php include 'add_member.php'; ?>
+				</div>
 			</div>
 
 			<div class="container-fluid section" id="companies">
@@ -201,7 +202,7 @@
 								<?php
 									require_once 'config.php';
 			                        $mysqli = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
-			                                
+
 			                        if($mysqli -> connect_error){
 			                            die("Connection failed: " . $mysqli->connect_error);
 			                        }
@@ -231,7 +232,7 @@
 								if(isset($_POST['contact_us_submit']) && isset($_POST['contact_us_check'])){
 									require_once 'config.php';
 					                $mysqli = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
-					                        
+
 					                if($mysqli -> connect_error){
 					                    die("Connection failed: " . $mysqli->connect_error);
 					                }
@@ -259,7 +260,7 @@
 						                else{
 						                	$_SESSION['contact_us_edit_message'] = "Failed to edit 'About Us' section(s)";
 						                	header("location: admin_page.php");
-					                		exit();	
+					                		exit();
 						                }
 						            }
 						            else{
