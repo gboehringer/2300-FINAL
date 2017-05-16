@@ -30,16 +30,16 @@ body{
     margin: auto;
     text-align: right;
     z-index: 1;
-		height: 90px;
+	height: 90px;
     font-size: .8em;
-		list-style: none;
+	list-style: none;
 
 }
 
 #nav_bar ul {
   display: inline-block;
 	list-style-type: none;
-	margin: 0; 
+	margin: 0;
 }
 
 #nav_bar li {
@@ -57,6 +57,7 @@ body{
 	color: white;}
 
 
+
 #tabs1 li:hover{
 	background-color: #510102;
 	color: #fff;
@@ -72,7 +73,6 @@ body{
 	text-decoration: none;
 	float: right;
 	padding: 0 2%;
-
 	color: #fff;
 }
 #tabs a:hover{
@@ -201,6 +201,8 @@ nav a{
 }
 #apply{
 	background-color: #f0f0f0;
+	height: auto;
+	padding-bottom: 100px;
 }
 #app_button {
   background: #3498db;
@@ -251,7 +253,6 @@ nav a{
 	max-width: 80%;
 	max-height: 100%;
 }
-
 select {
     width: 100%;
     padding: 16px 20px;
@@ -341,6 +342,10 @@ footer{
 }
 .message_info{
 	color: #000;
+}
+#apply_now_sec{
+	width: 100%;
+	text-align: center;
 }
 
 /**********************/
