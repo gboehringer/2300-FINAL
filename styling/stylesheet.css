@@ -107,6 +107,10 @@ nav a{
 	height: 60px;
 	padding-top: 1em;
 }
+#gcc_icon_nav{
+	height: 40px;
+	padding-top: 0em;
+}
 #icon a{
 	float: left;
 }
@@ -245,9 +249,10 @@ nav a{
 #app_form{
 	background-color: white;
 	text-align: left;
-	font-size: 0.7em;
+	font-size: 1em;
 	max-width: 80%;
-	max-height: 100%;
+	height: auto;
+	overflow: auto;
 }
 select {
     width: 100%;
