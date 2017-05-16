@@ -19,7 +19,7 @@
 		<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css?family=Lato:300" rel="stylesheet">
 		<link rel="stylesheet" type="text/css" href="styling/bootstrap.min.css">
-		<link rel="stylesheet" type="text/css" href="styling/stylesheet2.css?v=196546778152">
+		<link rel="stylesheet" type="text/css" href="styling/stylesheet2.css?v=19687654546778152">
 		<link rel="icon" href="images/browser_icon.ico">
 		<title>GCC - Admin</title>
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js" type="text/javascript"></script>
@@ -193,8 +193,11 @@
 				<div class="row">
 					<div class="col-lg-12">
 						<h2>Become A Member</h2>
-						<a href="#"><button id = "app_button">Apply</button></a>
+					<!--	<a href = "app_form.php"><button id = "app_button">Apply</button></a> -->
 						<p>Fall recruitment starts soon! Apply to become a member of our club and we'll get back to you as soon as we can.</p>
+						<div id="apply_now_sec">
+							<a href = "app_form.php"><input type = "submit"  value="Apply Now" id="subm"></a>
+						</div>
 					</div>
 				</div>
 			</div>
