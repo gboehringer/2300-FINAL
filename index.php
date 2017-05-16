@@ -104,7 +104,7 @@
 							print("<a href='$href' title='linkedin'><img src='members/headshots/$img_src' alt='profile picture' class='member_headshot'></a>");
 							print("<p><b>$first_name $last_name</b></p>");
 							print("<p>Class of $class</p>");
-							print("<p>Major: $major</p>");
+							print("<p>$major</p>");
 							print( '</div>' );
 						}
 					?>
