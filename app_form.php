@@ -137,6 +137,10 @@
     			if (ctype_alnum($_POST['net_id'])){
                 	$net = validate($_POST['net_id']);
             	}
+                else{
+                    echo ("Please enter a valid net id");
+                    return;
+                }   
        		}
 
        		//validation for first name

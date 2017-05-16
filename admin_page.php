@@ -164,6 +164,8 @@
 					<input type = "text" name = "major" placeholder = "Major" required>
 					<input type = "text" name = "net_id" placeholder = "Net ID" required>
 					<input type = "text" name = "year" placeholder = "Graduation Year" required>
+					<input type = "text" name = "bio" placeholder = "Short Bio">
+					<input type = "text" name = "linkedin" placeholder = "LinkedIn URL" required>
 					<h3>Resume Upload (.pdf or .doc)</h3>
 					<input type = 'file' name = 'resume' required>
 					<h3>Headshot Upload</h3>
