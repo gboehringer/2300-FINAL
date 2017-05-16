@@ -18,14 +18,8 @@ body{
 	max-height: 100%;
 	padding: 0px;
 }
-<<<<<<< HEAD
-
 
 #nav_bar {
-=======
-nav{
-	text-decoration: none;
->>>>>>> bfa905014c745d4157403913e4ee23507e768e19
 	width: 100%;
 	top: 0px;
     position: fixed;
@@ -33,12 +27,11 @@ nav{
     margin: auto;
     text-align: right;
     z-index: 1;
-		height: 90px;
+	height: 90px;
     font-size: .8em;
-		list-style: none;
+	list-style: none;
 
 }
-<<<<<<< HEAD
 
 #nav_bar ul {
   display: inline-block;
@@ -57,16 +50,6 @@ nav{
     display: block;
     text-decoration: none;
 	color: white;
-=======
-nav a{
-	text-decoration: none;
-    display: inline-block;
-    color: #fff;
-    height: 80px;
-    line-height: 80px;
-    margin: 0 auto;
-    padding: 0 1%;
->>>>>>> bfa905014c745d4157403913e4ee23507e768e19
 }
 
 #tabs1 li:hover{
@@ -84,11 +67,7 @@ nav a{
 	text-decoration: none;
 	float: right;
 	padding: 0 2%;
-<<<<<<< HEAD
-text-decoration: none;
-=======
 	color: #fff;
->>>>>>> bfa905014c745d4157403913e4ee23507e768e19
 }
 #tabs a:hover{
 	text-decoration: none;
@@ -211,6 +190,8 @@ nav a{
 }
 #apply{
 	background-color: #f0f0f0;
+	height: auto;
+	padding-bottom: 100px;
 }
 #app_button {
   background: #3498db;
@@ -260,7 +241,6 @@ nav a{
 #app_form{
 	background-color: white;
 }
-
 select {
     width: 100%;
     padding: 16px 20px;
@@ -350,6 +330,10 @@ footer{
 }
 .message_info{
 	color: #000;
+}
+#apply_now_sec{
+	width: 100%;
+	text-align: center;
 }
 
 /**********************/
