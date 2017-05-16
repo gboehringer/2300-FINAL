@@ -8,7 +8,7 @@
 		<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css?family=Lato:300" rel="stylesheet">
 		<link rel="stylesheet" type="text/css" href="styling/bootstrap.min.css">
-		<link rel="stylesheet" type="text/css" href="styling/stylesheet.css?v=11198765678152">
+		<link rel="stylesheet" type="text/css" href="styling/stylesheet.css?v=19998235432678152">
 		<link rel="icon" href="images/browser_icon.ico">
 		<title>GCC</title>
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js" type="text/javascript"></script>
@@ -16,7 +16,7 @@
 	<body>
 		<nav>
 			<div id="icon">
-				<a href="index.php"><img id="gcc_icon" src="images/gcc_gen.png" alt="gcc_icon"></a>
+				<a href="index.php"><img id="gcc_icon_nav" src="images/gcc_gen.png" alt="gcc_icon"></a>
 			</div>
 			<div id="tabs">
 				<a href="index.php">Return to Homepage</a>

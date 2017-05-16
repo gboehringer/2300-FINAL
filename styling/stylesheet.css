@@ -111,6 +111,10 @@ nav a{
 	height: 60px;
 	padding-top: 1em;
 }
+#gcc_icon_nav{
+	height: 40px;
+	padding-top: 0em;
+}
 #icon a{
 	float: left;
 }
