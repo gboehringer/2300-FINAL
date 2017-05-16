@@ -113,9 +113,31 @@
 
 			<div class="container-fluid section" id="companies">
 				<div class="row">
-					<div class="col-lg-12">
+					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 						<h2>Where We've Been</h2>
-						<img id="placement" src="images/placements.png" alt="placement">
+						<div id="placements_image"  class="col-lg-8 col-md-8 col-sm-12 hidden-xs">
+							<img id="placement" src="images/placements.png" alt="placement">
+						</div>
+						<div id="placements_description" class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+							<p>Our members have gone to work or intern with these companies:</p>
+							<ul>
+								<li>Google</li>
+								<li>Amazon</li>
+								<li>Bloomberg</li>
+								<li>J.P.Morgan</li>
+								<li>Bak of China</li>
+								<li>Well Fargo</li>
+								<li>RBC Royal Bank</li>
+								<li>Optiver</li>
+								<li>Barclays</li>
+								<li>Accenture</li>
+								<li>Deloitte</li>
+								<li>Bain & Company</li>
+								<li>Capital One</li>
+								<li>Black Rock</li>
+								<li>And many more</li>
+							</ul>
+						</div>
 					</div>
 				</div>
 			</div>
