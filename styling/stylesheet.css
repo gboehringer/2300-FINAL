@@ -107,15 +107,13 @@ nav a{
 	padding: 10px 0px 10px 0px;
 }
 .member_headshot{
-<<<<<<< HEAD
 	width: 150px;
+	height: 225px; 
 	border-radius: 50%;
 }
 .member_headshot:hover{
-=======
 	width: 160px;
-/*	border-radius: 50%;*/
->>>>>>> 59a4e84f4edfa4a8bde28fbb49c0107a9fd1d6a5
+	border-radius: 50%;
 	border-width: 1px;
 	border-color: #fff;
 	border-style: solid;
