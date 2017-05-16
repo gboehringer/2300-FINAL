@@ -1,9 +1,9 @@
-<?php 
+<?php
 	session_start();
 	if(!isset($_SESSION['logged_user'])){
 		header("location: index.php");
         exit();
-	} 
+	}
 	if(isset($_SESSION['login_message'])){
 		unset($_SESSION['login_message']);
 	}
@@ -22,7 +22,7 @@
 		<link rel="stylesheet" type="text/css" href="styling/stylesheet.css?v=1978152">
 		<link rel="icon" href="images/browser_icon.ico">
 		<title>GCC - Admin</title>
-		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js" type="text/javascript"></script> 
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js" type="text/javascript"></script>
 	</head>
 	<body>
 		<nav>
@@ -54,7 +54,7 @@
 						<?php
 							require_once 'config.php';
 	                        $mysqli = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
-	                                
+
 	                        if($mysqli -> connect_error){
 	                            die("Connection failed: " . $mysqli->connect_error);
 	                        }
@@ -96,7 +96,7 @@
 				if(isset($_POST['about_us_submit']) && isset($_POST['about_us_check'])){
 					require_once 'config.php';
 	                $mysqli = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
-	                        
+
 	                if($mysqli -> connect_error){
 	                    die("Connection failed: " . $mysqli->connect_error);
 	                }
@@ -125,7 +125,7 @@
 	                else{
 	                	$_SESSION['about_us_edit_message'] = "Failed to edit 'About Us' section(s)";
 	                	header("location: admin_page.php");
-                		exit();	
+                		exit();
 	                }
 	                $mysqli->close();
 				}
@@ -139,7 +139,7 @@
 						$allMembers = $mysqli->query("SELECT * FROM Members");
 
 						while($row = $allMembers->fetch_assoc()){
-							print("<div class='col-lg-3 col-md-4 col-sm-4 col-xs-6 member_profile'>");
+							print("<div class='col-lg-3 col-md-3 col-sm-4 col-xs-6 member_profile'>");
 							$img_src = $row['headshot_path'];
 							$first_name = $row['firstName'];
 							$last_name = $row['lastName'];
