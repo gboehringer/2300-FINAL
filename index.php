@@ -89,14 +89,23 @@
 				<h2>Our Members</h2><br/>
 				<div class="row" id="member_list">
 					<?php
-						for($j = 0; $j < 13; $j++){
-							echo "<div class='col-lg-3 col-md-3 col-sm-4 col-xs-6 member_profile'>
-									<img src='images/no-image-profile.png' alt='profile picture' class='member_headshot'>
-									<p><b>FirstName LastName</b></p>
-									<p>Position: [list position]</p>
-									<p>Class of 20XX</p>
-									<p>Major: [list major]</p>
-								</div>";
+						require_once 'config.php';
+						$mysqli = new mysqli( DB_HOST, DB_USER, DB_PASSWORD, DB_NAME );
+						$allMembers = $mysqli->query("SELECT * FROM Members");
+
+						while($row = $allMembers->fetch_assoc()){
+							print("<div class='col-lg-3 col-md-3 col-sm-4 col-xs-6 member_profile'>");
+							$img_src = $row['headshot_path'];
+							$first_name = $row['firstName'];
+							$last_name = $row['lastName'];
+							$class = $row['grad_year'];
+							$major = $row['major'];
+							$href = $row['linkedin_path'];
+							print("<a href='$href' title='linkedin'><img src='members/headshots/$img_src' alt='profile picture' class='member_headshot'></a>");
+							print("<p><b>$first_name $last_name</b></p>");
+							print("<p>Class of $class</p>");
+							print("<p>Major: $major</p>");
+							print( '</div>' );
 						}
 					?>
 				</div>
@@ -129,7 +138,7 @@
 					</div>
 					<div id="contact_div" class="container-fluid section">
 						<form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>" id="contact_form">
-							<p><label>Name</label>	
+							<p><label>Name</label>
 							<input type = "text" name="sender_name" class="message_info" maxlength="45" required></p>
 							<p><label>Email</label>
 							<input type = "text" name="sender_email" class="message_info" maxlength="50" required></p>
@@ -158,7 +167,7 @@
 
 								require_once 'config.php';
 				                $mysqli = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
-				                        
+
 				                if($mysqli -> connect_error){
 				                    die("Connection failed: " . $mysqli->connect_error);
 				                }
