@@ -84,7 +84,7 @@ nav a{
 }
 #main_title{
 	text-align: center;
-	font-size: 4em;
+	font-size: 4.5em;
 	color: #fff;
 	margin-top: 15%;
 }
@@ -99,29 +99,31 @@ nav a{
 	min-height: 100vh;
 	height: auto;
 }
+#view_app{
+	background-color: #f0f0f0;
+	line-height: .8;
+	min-height: 100vh;
+	height: auto;
+}
 #member_list{
 	text-align: center;
-	font-size: 0.5em;
+	font-size: 0.50em;
 }
+#app_list{
+	text-align: center;
+	font-size: 0.50em;
+}
+
 .member_profile{
-	padding: 10px 0px 10px 0px;
+	padding: 20px 0px 15px 0px;
 }
 .member_headshot{
-<<<<<<< HEAD
-	width: 150px;
+	width: 160px;
 	border-radius: 50%;
 }
 .member_headshot:hover{
-=======
-	width: 160px;
-/*	border-radius: 50%;*/
->>>>>>> 59a4e84f4edfa4a8bde28fbb49c0107a9fd1d6a5
 	border-width: 1px;
-	border-color: #fff;
 	border-style: solid;
-}
-.member_headshot:hover{
-	border-color: #000;
 }
 #companies{
 	background-color: #660f11;
@@ -193,7 +195,6 @@ input[type=text] {
     padding: 12px 20px;
     margin: 8px 0;
     box-sizing: border-box;
-    color: #000;
 }
 input[type=text]:focus {
     border: 3px solid #555;
