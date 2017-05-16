@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<?php session_start();?>
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
@@ -22,6 +23,33 @@
 			</div>
 		</nav>
 		<div class="container-fluid" id="content">
+            
+            <?php
+                if(isset($_SESSION['logged_user'])){
+                    echo("<div class = 'container-fluid section' id = 'view_app'>");
+                        echo("<div class='row' id='app_list'>");
+                        require_once 'config.php';
+                        $mysqli = new mysqli( DB_HOST, DB_USER, DB_PASSWORD, DB_NAME );
+                        $allapps = $mysqli->query("SELECT * FROM Applicants");
+                        while($row = $allapps->fetch_assoc()){
+                            print("<div class='col-lg-3 col-md-3 col-sm-4 col-xs-6 member_profile'>");
+                            $img_src = $row['headshot_path'];
+                            $first_name = $row['firstName'];
+                            $last_name = $row['lastName'];
+                            $class = $row['grad_year'];
+                            $major = $row['major'];
+                            $href = $row['resume_path'];
+                            print("<a href='$href' title='resume'><img src='$img_src' alt='profile picture' class='member_headshot'></a>");
+                            print("<p><b>$first_name $last_name</b></p>");
+                            print("<p>Class of $class</p>");
+                            print("<p>Major: $major</p>");
+                            print( '</div>' );     
+                            }
+                            print( '</div>' ); 
+                        print( '</div>' );                    
+                    }
+                ?>
+            </div>
 			<div class="container-fluid section" id="app_form">
 				<!--This application form will be used during the GCC recruitment season. We will allow logged in Admin
 				users to either display the form during their recruitment season or hide the form when they are no longer
@@ -77,6 +105,10 @@
     		    	$headshotName = filter_var($headshotName, FILTER_SANITIZE_URL);
 			    	move_uploaded_file($tmp, "applicants/headshots/$headshotName");
 				}
+            }
+            else{
+                $headshotName = 'default.png';
+            }
 
 			//Validates that file is a pdf or doc 
  			if (!empty($_FILES['resume']['tmp_name']) && !($_FILES['resume']['error'] >0) && ($_FILES['resume']['size'] < 5242880)) {
@@ -171,11 +203,11 @@
         		echo("Invalid Entry. Please resubmit your application.");
         	}
         }
-        }
+        
 
-	
-
-		}
+	   }
+    
+		
 
 
     		
