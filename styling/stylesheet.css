@@ -270,6 +270,27 @@ footer{
 .message_info{
 	color: #000;
 }
-@media screen and (min-width: ) and (max-width: ){
+
+/**********************/
+/* responsive styling */
+/**********************/
+
+@media screen and (max-width: 1200px) {
+	nav {
+			font-size: .7em;
+	}
+}
+
+@media screen and (max-width: 1000px) {
+	nav {
+	    font-size: .5em;
+	}
+	#main_title{
+		padding-top: 2em;
+		font-size: 2em;
+	}
+}
+
+@media screen and (max-width: 620px) {
 
 }
