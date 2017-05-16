@@ -34,8 +34,9 @@
 				<ul>
 				<?php
 					if(isset($_SESSION['logged_user'])){
-						echo "<a href='logout.php'>Logout</a>";
-						echo "<a href='admin_page.php'>Admin Page</a>";
+						echo "<li><a href='logout.php'>Logout</a></li>";
+						echo "<li><a href='admin_page.php'>Admin Page</a></li>";
+						echo "<link rel='stylesheet' type='text/css' href='styling/stylesheet2.css'>";
 					}
 				?>
 				<li><a href="#contact_us">Contact Us</a></li>
