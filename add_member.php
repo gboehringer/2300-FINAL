@@ -135,8 +135,8 @@ if (isset($_POST['submit'])) {
           
       }      
 
-      $pathheadshot = "members/headshots/$headshotName";
-      $pathresume = "members/resumes/$resumeName";
+      $pathheadshot = "$headshotName";
+      $pathresume = "$resumeName";
       $add = "INSERT INTO Members (net_id,firstName,lastName,middleName,grad_year,major,headshot_path,resume_path,bio,linkedin_path) VALUES('$net','$firstname','$lastname','$middlename','$year','$major','$pathheadshot','$pathresume','$bio','$link')";
       //Inserts data into Applicants Database
       if($mysqli->query($add)){
