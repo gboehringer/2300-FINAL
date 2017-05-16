@@ -41,7 +41,7 @@
 				<h3>Headshot Upload</h3>
 				<input type = 'file' name = 'headshot' >
 				<h3>Submit Application</h3>
-				<input type = "submit" name="submit" >
+				<input type = "submit" value = "Apply" name="submit" >
 				</form>
 			</div>
 		</div>
