@@ -19,7 +19,7 @@
 		<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css?family=Lato:300" rel="stylesheet">
 		<link rel="stylesheet" type="text/css" href="styling/bootstrap.min.css">
-		<link rel="stylesheet" type="text/css" href="styling/stylesheet.css?v=11432987678978152">
+		<link rel="stylesheet" type="text/css" href="styling/stylesheet.css?v=1978152">
 		<link rel="icon" href="images/browser_icon.ico">
 		<title>GCC - Admin</title>
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js" type="text/javascript"></script> 
@@ -134,14 +134,23 @@
 				<h2>Our Members</h2><br/>
 				<div class="row" id="member_list">
 					<?php
-						for($j = 0; $j < 13; $j++){
-							echo "<div class='col-lg-3 col-md-3 col-sm-4 col-xs-6 member_profile'>
-									<img src='images/no-image-profile.png' alt='profile picture' class='member_headshot'>
-									<p><b>FirstName LastName</b></p>
-									<p>Position: [list position]</p>
-									<p>Class of 20XX</p>
-									<p>Major: [list major]</p>
-								</div>";
+						require_once 'config.php';
+						$mysqli = new mysqli( DB_HOST, DB_USER, DB_PASSWORD, DB_NAME );
+						$allMembers = $mysqli->query("SELECT * FROM Members");
+
+						while($row = $allMembers->fetch_assoc()){
+							print("<div class='col-lg-3 col-md-4 col-sm-4 col-xs-6 member_profile'>");
+							$img_src = $row['headshot_path'];
+							$first_name = $row['firstName'];
+							$last_name = $row['lastName'];
+							$class = $row['grad_year'];
+							$major = $row['major'];
+							$href = $row['linkedin_path'];
+							print("<a href='$href' title='linkedin'><img src='members/headshots/$img_src' alt='profile picture' class='member_headshot'></a>");
+							print("<p><b>$first_name $last_name</b></p>");
+							print("<p>Class of $class</p>");
+							print("<p>$major</p>");
+							print( '</div>' );
 						}
 					?>
 				</div>
@@ -151,7 +160,7 @@
 				<div class="row">
 					<div class="col-lg-12">
 						<h2>Where We've Been</h2>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+						<img id="placement" src="images/placements.png" alt="placement">
 					</div>
 				</div>
 			</div>
@@ -160,17 +169,90 @@
 				<div class="row">
 					<div class="col-lg-12">
 						<h2>Become A Member</h2>
-						<a href = "app_form.php"><button id = "app_button">Apply</button></a>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+						<a href="#"><button id = "app_button">Apply</button></a>
+						<p>Fall recruitment starts soon! Apply to become a member of our club and we'll get back to you as soon as we can.</p>
 					</div>
 				</div>
 			</div>
 
 			<div class="container-fluid section" id="contact_us">
 				<div class="row">
-					<div class="col-lg-12">
+					<div class="col-lg-12" id="new_contact_us_info">
 						<h2>Contact Us</h2>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+							<form method="POST">
+								<?php
+									require_once 'config.php';
+			                        $mysqli = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
+			                                
+			                        if($mysqli -> connect_error){
+			                            die("Connection failed: " . $mysqli->connect_error);
+			                        }
+			                        $content = $mysqli->query("SELECT * FROM Site_content WHERE content_name = 'contact_email_recipient'");
+	                        		$entry = $content->fetch_assoc();
+	                        		$email = $entry['Content'];
+
+	                        		$mysqli->close();
+								?>
+								<div id='contact_us_current'>
+									<p>Current Email Receiving Messages: <?php echo $email;?></p>
+								</div>
+								<div>
+									<label>New Email Address:</label><input type="text" name="new_address" placeholder="New Email Address" maxlength="150" required>
+									<input class="check_box" type="checkbox" name="contact_us_check" required><label class="check_box_label">Confirm Changes</label>
+									<input type="submit" name="contact_us_submit" value="Submit Changes" id="subm">
+								</div>
+								<?php
+									if(isset($_SESSION['contact_us_edit_message'])){
+										$contact_us_message = $_SESSION['contact_us_edit_message'];
+										echo ("<p class='changes_message'>$contact_us_message</p>");
+										unset($_SESSION['contact_us_edit_message']);
+									}
+								?>
+							</form>
+							<?php
+								if(isset($_POST['contact_us_submit']) && isset($_POST['contact_us_check'])){
+									require_once 'config.php';
+					                $mysqli = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
+					                        
+					                if($mysqli -> connect_error){
+					                    die("Connection failed: " . $mysqli->connect_error);
+					                }
+
+					                $new_email = filter_input(INPUT_POST, "new_address", FILTER_SANITIZE_STRING);
+
+					                $validEmail = filter_var($new_email, FILTER_VALIDATE_EMAIL);
+
+					                if($validEmail){
+						                $stmt = $mysqli->prepare("UPDATE Site_content SET Content = ? WHERE content_name = 'contact_email_recipient'");
+						                $stmt->bind_param("s", $new_email);
+
+										// set parameters and execute
+										$new_email = filter_input(INPUT_POST, "new_address", FILTER_SANITIZE_STRING);
+										$stmt->execute();
+										$st1 = $stmt->close();
+										$mysqli->close();
+
+						               	unset($_SESSION['contact_us_edit_message']);
+						                if($st1){
+						                	$_SESSION['contact_us_edit_message'] = "Succesfully Updated Email Recipient";
+						                	header("location: admin_page.php");
+					                		exit();
+						                }
+						                else{
+						                	$_SESSION['contact_us_edit_message'] = "Failed to edit 'About Us' section(s)";
+						                	header("location: admin_page.php");
+					                		exit();	
+						                }
+						            }
+						            else{
+						            	$mysqli->close();
+						            	unset($_SESSION['contact_us_edit_message']);
+					                	$_SESSION['contact_us_edit_message'] = "Invalid Email Address";
+					                	header("location: admin_page.php");
+				                		exit();
+						            }
+								}
+							?>
 					</div>
 				</div>
 			</div>
