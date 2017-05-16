@@ -154,6 +154,24 @@
 						}
 					?>
 				</div>
+				<div class="container-fluid section" id="new_member">
+
+					<h2>Add New Member</h2>
+					<form method = "post" enctype = 'multipart/form-data'  id = "application">
+					<input type = "text" name = "firstname" placeholder = "First Name" required>
+					<input type = "text" name = "middlename" placeholder = "Middle Name - Optional">
+					<input type = "text" name = "lastname" placeholder = "Last Name" required>
+					<input type = "text" name = "major" placeholder = "Major" required>
+					<input type = "text" name = "net_id" placeholder = "Net ID" required>
+					<input type = "text" name = "year" placeholder = "Graduation Year" required>
+					<h3>Resume Upload (.pdf or .doc)</h3>
+					<input type = 'file' name = 'resume' required>
+					<h3>Headshot Upload</h3>
+					<input type = 'file' name = 'headshot' >
+					<input type = "submit" value = "Add New Member" name="submit" >
+					</form>
+				</div>
+				<?php include 'add_member.php'; ?>
 			</div>
 
 			<div class="container-fluid section" id="companies">
