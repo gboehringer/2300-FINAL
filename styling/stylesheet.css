@@ -362,7 +362,6 @@ footer{
 @media screen and (max-width: 1100px) {
 	#nav_bar {
 	    font-size: .7em;
-			height: 3.5em;
 	}
 
 	#nav_bar li a{
@@ -373,7 +372,7 @@ footer{
 
 	#gcc_icon{
 		height: 40px;
-		padding-top: 0.8em;
+		padding-top: 1em;
 	}
 
 	#main_title{
