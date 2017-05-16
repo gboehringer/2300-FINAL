@@ -107,8 +107,9 @@ nav a{
 	padding: 10px 0px 10px 0px;
 }
 .member_headshot{
-	width: 200px;
-	/*border-radius: 50%;*/
+	width: 150px;
+	height: 230px;
+	border-radius: 50%;
 	border-width: 1px;
 	border-color: #fff;
 	border-style: solid;
