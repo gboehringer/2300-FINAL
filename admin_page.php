@@ -19,26 +19,29 @@
 		<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css?family=Lato:300" rel="stylesheet">
 		<link rel="stylesheet" type="text/css" href="styling/bootstrap.min.css">
-		<link rel="stylesheet" type="text/css" href="styling/stylesheet.css?v=196546778152">
+		<link rel="stylesheet" type="text/css" href="styling/stylesheet2.css?v=196546778152">
 		<link rel="icon" href="images/browser_icon.ico">
 		<title>GCC - Admin</title>
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js" type="text/javascript"></script>
 	</head>
 	<body>
-		<nav>
+		<div id="nav_bar">
 			<div id="icon">
 				<a href="index.php"><img id="gcc_icon" src="images/gcc_gen.png" alt="gcc_icon"></a>
 			</div>
-			<div id="tabs">
-				<a href='logout.php'>Logout</a>
-				<a href='index.php'>Homepage</a>
-				<a href="#contact_us">Contact Us</a>
-				<a href="#apply">Apply</a>
-				<a href="#companies">Companies</a>
-				<a href="#our_members">Our Members</a>
-				<a href="#about_us">About Us</a>
-			</div>
-		</nav>
+					<div id="tabs1">
+						<ul>
+						<li><a href='logout.php'>Logout</a></li>
+						<li><a href='admin_page.php'>Admin Page</a></li>
+						<li><a href="#contact_us">Contact Us</a></li>
+						<li><a href="#apply">Apply</a></li>
+						<li><a href="#companies">Companies</a></li>
+						<li><a href="#our_members">Our Members</a></li>
+						<li><a href="#about_us">About Us</a></li>
+					</ul>
+					</div>
+				</div>
+
 		<div class="container-fluid" id="content">
 			<div class="container-fluid section" id="top">
 				<div class="row">

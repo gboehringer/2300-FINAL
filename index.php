@@ -26,24 +26,28 @@
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js" type="text/javascript"></script>
 	</head>
 	<body>
-		<nav>
+<div id="nav_bar">
 			<div id="icon">
 				<a href="#top"><img id="gcc_icon" src="images/gcc_gen.png" alt="gcc_icon"></a>
 			</div>
-			<div id="tabs">
+			<div id="tabs1">
+				<ul>
 				<?php
 					if(isset($_SESSION['logged_user'])){
-						echo "<a href='logout.php'>Logout</a>";
-						echo "<a href='admin_page.php'>Admin Page</a>";
+						echo "<li><a href='logout.php'>Logout</a></li>";
+						echo "<li><a href='admin_page.php'>Admin Page</a></li>";
+						echo "<link rel='stylesheet' type='text/css' href='styling/stylesheet2.css'>";
 					}
 				?>
-				<a href="#contact_us">Contact Us</a>
-				<a href="#apply">Apply</a>
-				<a href="#companies">Companies</a>
-				<a href="#our_members">Our Members</a>
-				<a href="#about_us">About Us</a>
+				<li><a href="#contact_us">Contact Us</a></li>
+				<li><a href="#apply">Apply</a></li>
+				<li><a href="#companies">Companies</a></li>
+				<li><a href="#our_members">Our Members</a></li>
+				<li><a href="#about_us">About Us</a></li>
+			</ul>
 			</div>
-		</nav>
+		</div>
+
 		<div class="container-fluid" id="content">
 			<div class="container-fluid section" id="top">
 				<div class="row">
