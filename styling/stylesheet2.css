@@ -195,7 +195,9 @@ nav a{
 	padding: 0px 20px;
 }
 #apply{
-	background-color: #f0f0f0;
+		background-color: #f0f0f0;
+	height: auto;
+	padding-bottom: 100px;
 }
 #app_button {
   background: #3498db;
