@@ -60,35 +60,32 @@
                     if(!(empty($username) || empty($password))){
                     	require_once 'config.php';
                         $mysqli = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
-                                
                         if($mysqli -> connect_error){
                             die("Connection failed: " . $mysqli->connect_error);
                         }
-                        $get_user = $mysqli->query("SELECT * FROM Admin_login WHERE username='$username'");
+                        $stmt = $mysqli->stmt_init();
+                        $stmt->prepare("SELECT name, hashpassword FROM Admin_login WHERE username=?");
+                        $stmt->bind_param("s", $username);
+                        $stmt->execute();
+                        $stmt->bind_result($user, $hashp);
+                        $stmt->fetch();
 
-                        if(mysqli_num_rows($get_user) < 1){
-                        	$_SESSION['login_message'] = "<p>Invalid Login Credentials</p>";
-                        	header("location: admin_login.php");
-                			exit();
+                        $valid_pass = password_verify($password, $hashp);
+                        if($valid_pass){
+                            $_SESSION['login_message'] = "<p>Welcome, $user</p>";
+                            $_SESSION['logged_user'] = $username;
+                            header("location: admin_login.php");
+                            $stmt->close();
+                        	$mysqli->close();
+            				exit();
                         }
                         else{
-	                        $user = $get_user->fetch_assoc();
-	                        $actual_pass = $user["hashpassword"];
-	                        $user_name = $user["name"];
-
-	                        $valid_pass = password_verify($password, $actual_pass);
-	                        if($valid_pass){
-	                            $_SESSION['login_message'] = "<p>Welcome, $user_name</p>";
-	                            $_SESSION['logged_user'] = $username;
-	                            header("location: admin_login.php");
-                				exit();
-	                        }
-	                        else{
-	                        	$_SESSION['login_message'] = "<p>Invalid Login Credentials</p>";
-	                        	header("location: admin_login.php");
-                				exit();
-	                        }
-	                    }
+                        	$_SESSION['login_message'] = "<p>Invalid Login Credentials</p>";
+                        	header("location: admin_login.php");
+                        	$stmt->close();
+                        	$mysqli->close();
+            				exit();
+                        }
                         $mysqli->close();
                     }
                     else{
