@@ -11,11 +11,15 @@ body{
     height: 100%;
     color: #000;
 }
+*{
+	outline: none;
+}
 #content{
 	max-height: 100%;
 	padding: 0px;
 }
 nav{
+	text-decoration: none;
 	width: 100%;
     position: fixed;
     background-color: #420001;
@@ -27,13 +31,13 @@ nav{
     left: 0; */
 }
 nav a{
+	text-decoration: none;
     display: inline-block;
     color: #fff;
     height: 80px;
     line-height: 80px;
     margin: 0 auto;
     padding: 0 1%;
-    text-decoration: none;
 }
 #tabs{
 	width: 80%;
@@ -41,11 +45,13 @@ nav a{
 	padding: 0 1%;
 }
 #tabs a{
+	text-decoration: none;
 	float: right;
 	padding: 0 2%;
-	text-decoration: none;
+	color: #fff;
 }
 #tabs a:hover{
+	text-decoration: none;
 	background-color: #510102;
 	color: #fff;
 }
@@ -208,7 +214,7 @@ input[type=text] {
     color: #000;
 }
 input[type=text]:focus {
-    border: 3px solid #555;
+    border: 1px solid #000;
     color: #000;
 }
 input[type=password] {
@@ -218,7 +224,7 @@ input[type=password] {
     box-sizing: border-box;
 }
 input[type=password]:focus {
-    border: 3px solid #555;
+    border: 1px solid #000;
 }
 
 input[type=submit] {
