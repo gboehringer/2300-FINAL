@@ -28,7 +28,7 @@
 						echo "<a href='admin_page.php'>Admin Page</a>";
 					}
 				?>
-				<a href="index.php">Return to Homepage</a>
+				<a href="index.php">Homepage</a>
 			</div>
 		</nav>
 		<div class="container-fluid" id="content">

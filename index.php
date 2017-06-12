@@ -35,7 +35,6 @@
 				<?php
 					if(isset($_SESSION['logged_user'])){
 						echo "<li><a href='logout.php'>Logout</a></li>";
-						echo "<li><a href='admin_page.php'>Admin Page</a></li>";
 						echo "<link rel='stylesheet' type='text/css' href='styling/stylesheet2.css'>";
 					}
 				?>
@@ -44,6 +43,11 @@
 				<li><a href="#companies">Companies</a></li>
 				<li><a href="#our_members">Our Members</a></li>
 				<li><a href="#about_us">About Us</a></li>
+				<?php
+					if(isset($_SESSION['logged_user'])){
+						echo "<li><a href='admin_page.php'>Admin Page</a></li>";
+					}
+				?>
 			</ul>
 			</div>
 		</div>
@@ -150,8 +154,21 @@
 				<div class="row">
 					<div class="col-lg-12">
 						<h2>Become A Member</h2>
-					<!--	<a href = "app_form.php"><button id = "app_button">Apply</button></a> -->
-						<p>Fall recruitment starts soon! Apply to become a member of our club and we'll get back to you as soon as we can.</p>
+						<?php
+							require_once 'config.php';
+			                $mysqli = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
+
+			                if($mysqli -> connect_error){
+			                    die("Connection failed: " . $mysqli->connect_error);
+			                }
+
+			                $become_content = $mysqli->query("SELECT * FROM Site_content WHERE content_name = 'become_a_member'");
+			                $content = $become_content->fetch_assoc();
+		            		$text = $content['Content'];
+		            		print ("<p>".$text."</p>");
+		            		$mysqli->close();
+
+						?>
 						<div id="apply_now_sec">
 							<a href = "app_form.php"><input type = "submit"  value="Apply Now" id="subm"></a>
 						</div>

@@ -1,0 +1,12 @@
+required fixes:
+
+admin page
+	our members
+		-add option to remove members
+		add new member
+			-does not add members // crashes after submitting
+			-suggestion: show applicants that aren't already members
+			-remove resume upload
+			-headshot upload or select from applicant list
+	become a member
+		-editable message

@@ -26,9 +26,9 @@ body{
     margin: auto;
     text-align: right;
     z-index: 1;
-		height: 90px;
+	height: 90px;
     font-size: .8em;
-		list-style: none;
+	list-style: none;
 
 }
 
@@ -336,6 +336,9 @@ footer{
 	color: #000;
 }
 .message_info{
+	color: #000;
+}
+.black_text{
 	color: #000;
 }
 

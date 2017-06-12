@@ -19,7 +19,7 @@
 		<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css?family=Lato:300" rel="stylesheet">
 		<link rel="stylesheet" type="text/css" href="styling/bootstrap.min.css">
-		<link rel="stylesheet" type="text/css" href="styling/stylesheet2.css?v=1976543687654546778152">
+		<link rel="stylesheet" type="text/css" href="styling/stylesheet2.css?v=1999">
 		<link rel="icon" href="images/browser_icon.ico">
 		<title>GCC - Admin</title>
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js" type="text/javascript"></script>
@@ -32,12 +32,12 @@
 					<div id="tabs1">
 						<ul>
 						<li><a href='logout.php'>Logout</a></li>
-						<li><a href='admin_page.php'>Admin Page</a></li>
 						<li><a href="#contact_us">Contact Us</a></li>
 						<li><a href="#apply">Apply</a></li>
 						<li><a href="#companies">Companies</a></li>
 						<li><a href="#our_members">Our Members</a></li>
 						<li><a href="#about_us">About Us</a></li>
+						<li><a href='index.php'>Home Page</a></li>
 					</ul>
 					</div>
 				</div>
@@ -215,11 +215,63 @@
 				<div class="row">
 					<div class="col-lg-12">
 						<h2>Become A Member</h2>
-					<!--	<a href = "app_form.php"><button id = "app_button">Apply</button></a> -->
-						<p>Fall recruitment starts soon! Apply to become a member of our club and we'll get back to you as soon as we can.</p>
+						<form method="post">
+							<?php
+								require_once 'config.php';
+				                $mysqli = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
+
+				                if($mysqli -> connect_error){
+				                    die("Connection failed: " . $mysqli->connect_error);
+				                }
+
+				                $become_content = $mysqli->query("SELECT * FROM Site_content WHERE content_name = 'become_a_member'");
+				                $content = $become_content->fetch_assoc();
+			            		$text = $content['Content'];
+							?>
+							
+							<p>
+								<label>New Message:</label>
+								<textarea class="edit_input" name="new_member_message" rows="1" maxlength="2000" required><?php echo $text;?></textarea>
+							</p>
+							<p>
+								<input class="check_box" type="checkbox" name="become_member_check" required><label class="check_box_label black_text">Confirm Changes</label>
+								<input type="submit" name="become_member_submit" value="Submit Changes" id="subm">
+							</p>
+							<p>
+								<?php echo $_SESSION['become_member_edit_message']; unset($_SESSION['become_member_edit_message']);?>
+							</p>
+							<br/>
+						</form>
 						<div id="apply_now_sec">
-							<a href = "app_form.php"><input type = "submit"  value="Apply Now" id="subm"></a>
+								<a href = "app_form.php"><input type = "submit"  value="Apply Now" id="subm"></a>
 						</div>
+
+						<?php
+							if(isset($_POST['become_member_submit']) && isset($_POST['become_member_check'])){
+				                $new_message = filter_input(INPUT_POST, "new_member_message", FILTER_SANITIZE_STRING);
+
+				                $stmt = $mysqli->prepare("UPDATE Site_content SET Content = ? WHERE content_name = 'become_a_member'");
+				                $stmt->bind_param("s", $new_message);
+
+								// set parameters and execute
+								$new_message = filter_input(INPUT_POST, "new_member_message", FILTER_SANITIZE_STRING);
+								$stmt->execute();
+								$st1 = $stmt->close();
+								$mysqli->close();
+
+				               	unset($_SESSION['become_member_edit_message']);
+				                if($st1){
+				                	$_SESSION['become_member_edit_message'] = "Succesfully Updated Message";
+				                	header("location: admin_page.php");
+			                		exit();
+				                }
+				                else{
+				                	$_SESSION['become_member_edit_message'] = "Failed to edit 'Become A Member' content";
+				                	header("location: admin_page.php");
+			                		exit();
+								}	
+							}
+						?>
 					</div>
 				</div>
 			</div>
@@ -244,9 +296,9 @@
 								?>
 								<div id='contact_us_current'>
 									<p>Current Email Receiving Messages: <?php echo $email;?></p>
-								</div>
+								</div>	
 								<div>
-									<p><label>New Email Address:</label><input type="text" name="new_address" placeholder="example@cornell.edu" maxlength="150" required></p>
+									<p><label>New Email Address:</label><input type="text" name="new_address" placeholder="example@cornell.edu" maxlength="100" required></p>
 									<input class="check_box" type="checkbox" name="contact_us_check" required><label class="check_box_label">Confirm Changes</label>
 									<input type="submit" name="contact_us_submit" value="Submit Changes" id="subm">
 								</div>
